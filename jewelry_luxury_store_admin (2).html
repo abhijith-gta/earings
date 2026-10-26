@@ -1,0 +1,1868 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEWELRY | Fine Handcrafted Adornments</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#FAF7F2',
+                        alabaster: '#F3EFE6',
+                        obsidian: '#141817',
+                        emeraldDeep: '#0F2922',
+                        gold: '#C5A059',
+                        goldLight: '#E5CFA0',
+                        goldDark: '#9E7B36',
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'luxury': '0 20px 40px -15px rgba(20, 24, 23, 0.07)',
+                        'gold-glow': '0 10px 25px -5px rgba(197, 160, 89, 0.35)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #FAF7F2;
+            color: #141817;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAF7F2;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C5A059;
+            border-radius: 3px;
+        }
+
+        /* Subtle Luxury Shimmer */
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .gold-shimmer {
+            background: linear-gradient(90deg, #C5A059 0%, #E8D3A7 50%, #C5A059 100%);
+            background-size: 200% auto;
+            animation: shimmer 6s infinite linear;
+        }
+
+        /* Product Image Zoom */
+        .product-card:hover .product-img {
+            transform: scale(1.07);
+        }
+
+        /* Smooth Fade In */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-gold selection:text-white">
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="bg-obsidian text-cream text-xs py-2.5 px-4 border-b border-gold/20">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
+            <p class="tracking-widest uppercase font-medium flex items-center gap-2">
+                <i class="ph-fill ph-sparkle text-gold"></i>
+                <span>Handcrafted Luxury Adornments • Direct WhatsApp Concierge Checkout</span>
+            </p>
+            <div class="flex items-center gap-4 text-[11px] text-goldLight">
+                <span><i class="ph ph-shield-check mr-1"></i>Anti-Tarnish Guaranteed</span>
+                <span class="hidden md:inline">•</span>
+                <span class="hidden md:inline"><i class="ph ph-truck mr-1"></i>Pan-India Express Delivery</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- STICKY NAVIGATION HEADER -->
+    <header class="sticky top-0 z-40 bg-cream/95 backdrop-blur-md border-b border-gold/20 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+            
+            <!-- Left: Quick Category Links (Customer Only - Seller Studio Hidden) -->
+            <div class="hidden md:flex items-center gap-6 text-xs font-semibold uppercase tracking-widest text-obsidian/75">
+                <a href="#collectionSection" onclick="setCategory('All')" class="hover:text-goldDark transition-colors">All Jewelry</a>
+                <a href="#collectionSection" onclick="setCategory('Earrings')" class="hover:text-goldDark transition-colors">Earrings</a>
+                <a href="#collectionSection" onclick="setCategory('Necklaces')" class="hover:text-goldDark transition-colors">Necklaces</a>
+                <a href="#collectionSection" onclick="setCategory('Bridal Sets')" class="hover:text-goldDark transition-colors">Bridal</a>
+            </div>
+
+            <!-- Mobile Left: Search Shortcut -->
+            <div class="flex md:hidden">
+                <a href="#collectionSection" class="w-9 h-9 rounded-full bg-alabaster border border-gold/30 flex items-center justify-center text-obsidian">
+                    <i class="ph ph-magnifying-glass text-base"></i>
+                </a>
+            </div>
+
+            <!-- Center: Luxury Monogram & Brand Logo (Secret 5-Tap Trigger for Seller Studio) -->
+            <div onclick="handleSecretLogoTap()" class="flex flex-col items-center group cursor-pointer select-none" title="JEWELRY Atelier">
+                <div class="flex items-center gap-2">
+                    <span class="w-7 h-7 rounded-full border border-gold flex items-center justify-center font-serif italic text-gold text-base group-hover:bg-gold group-hover:text-obsidian transition-colors">J</span>
+                    <span class="font-serif text-2xl sm:text-3xl tracking-[0.25em] font-semibold text-obsidian">JEWELRY</span>
+                </div>
+                <span class="text-[9px] uppercase tracking-[0.35em] text-goldDark -mt-1 font-medium">Atelier & Co.</span>
+            </div>
+
+            <!-- Right: Quick Actions & Cart Trigger -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <!-- Shown only when Seller is logged in -->
+                <button id="headerAdminBadge" onclick="switchMode('admin')" class="hidden items-center gap-1.5 px-3 py-1.5 rounded-full bg-gold/20 border border-gold text-obsidian text-xs font-bold">
+                    <i class="ph-fill ph-shield-star text-goldDark"></i>
+                    <span class="hidden sm:inline">Supplier Panel</span>
+                </button>
+
+                <button onclick="openWhatsAppDirectSupport()" title="Chat on WhatsApp" class="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-full border border-emerald-700/30 bg-emerald-950/5 text-emerald-900 hover:bg-emerald-900 hover:text-white text-xs font-medium transition-all">
+                    <i class="ph-fill ph-whatsapp-logo text-base text-emerald-600 group-hover:text-white"></i>
+                    <span class="hidden lg:inline">WhatsApp Support</span>
+                </button>
+
+                <button onclick="toggleCart(true)" class="relative flex items-center gap-2 bg-obsidian hover:bg-emeraldDeep text-cream px-4 py-2.5 rounded-full transition-all shadow-sm hover:shadow-gold-glow group">
+                    <i class="ph ph-handbag text-lg text-gold group-hover:scale-110 transition-transform"></i>
+                    <span class="text-xs font-medium tracking-wider uppercase hidden sm:inline">Bag</span>
+                    <span id="cartCountBadge" class="bg-gold text-obsidian text-[11px] font-bold w-5 h-5 rounded-full flex items-center justify-center">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================== -->
+    <!-- VIEW 1: CUSTOMER STOREFRONT                -->
+    <!-- ========================================== -->
+    <main id="storefrontView" class="flex-grow">
+        
+        <!-- HERO BANNER -->
+        <section class="relative overflow-hidden bg-obsidian text-cream">
+            <!-- Decorative ambient glow -->
+            <div class="absolute -top-24 -left-24 w-96 h-96 bg-gold/15 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-emerald-800/20 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 lg:py-24 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    
+                    <!-- Hero Typography -->
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-gold/40 bg-gold/10 text-goldLight text-xs uppercase tracking-[0.2em]">
+                            <i class="ph-fill ph-crown text-gold"></i>
+                            <span>2026 Royal Heritage Edit</span>
+                        </div>
+                        
+                        <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal leading-[1.08] tracking-tight">
+                            Timeless Artistry, <br>
+                            <span class="italic font-light text-goldLight">Crafted for Grace.</span>
+                        </h1>
+                        
+                        <p class="text-cream/75 text-sm sm:text-base max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
+                            Explore our curated collection of handcrafted statement earrings, heritage temple jhumkas, and sculpted gold-plated necklaces. Select your favorites and order effortlessly via WhatsApp—no account or login required.
+                        </p>
+                        
+                        <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4">
+                            <a href="#collectionSection" class="gold-shimmer text-obsidian font-semibold text-xs sm:text-sm uppercase tracking-widest px-8 py-4 rounded-full shadow-gold-glow hover:opacity-95 transition-all flex items-center gap-2">
+                                <span>Shop Collection</span>
+                                <i class="ph-bold ph-arrow-down-right text-base"></i>
+                            </a>
+                            <button onclick="openWhatsAppDirectSupport()" class="px-6 py-4 rounded-full border border-gold/40 text-cream hover:bg-gold/10 text-xs sm:text-sm uppercase tracking-widest transition-all flex items-center gap-2">
+                                <i class="ph-fill ph-whatsapp-logo text-emerald-400 text-base"></i>
+                                <span>Chat with Boutique</span>
+                            </button>
+                        </div>
+
+                        <!-- Highlights Bar -->
+                        <div class="pt-6 grid grid-cols-3 gap-4 border-t border-white/10 max-w-lg mx-auto lg:mx-0 text-left">
+                            <div>
+                                <p class="font-serif text-2xl text-gold font-semibold">Free</p>
+                                <p class="text-[11px] text-cream/60 uppercase tracking-wider">Express Delivery</p>
+                            </div>
+                            <div>
+                                <p class="font-serif text-2xl text-gold font-semibold">1-Click</p>
+                                <p class="text-[11px] text-cream/60 uppercase tracking-wider">WhatsApp Order</p>
+                            </div>
+                            <div>
+                                <p class="font-serif text-2xl text-gold font-semibold">22K</p>
+                                <p class="text-[11px] text-cream/60 uppercase tracking-wider">Micro Gold Finish</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hero Editorial Collage -->
+                    <div class="lg:col-span-5 relative">
+                        <div class="relative mx-auto max-w-md lg:max-w-none">
+                            <div class="aspect-[4/5] rounded-t-full rounded-b-2xl overflow-hidden border-2 border-gold/40 shadow-2xl relative group">
+                                <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85" 
+                                     alt="Luxury Necklace Showcase" 
+                                     onerror="this.src='https://placehold.co/800x1000/141817/C5A059?text=JEWELRY'"
+                                     class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-obsidian/80 via-transparent to-transparent"></div>
+                                <div class="absolute bottom-5 left-5 right-5 flex items-end justify-between text-cream">
+                                    <div>
+                                        <span class="text-[10px] uppercase tracking-widest text-gold block">Featured Piece</span>
+                                        <p class="font-serif text-xl italic">The Maharani Pearl Choker</p>
+                                    </div>
+                                    <span class="bg-gold text-obsidian text-xs font-bold px-3 py-1 rounded-full">₹2,499</span>
+                                </div>
+                            </div>
+
+                            <div class="hidden sm:flex items-center gap-3 bg-cream text-obsidian p-3 rounded-2xl shadow-xl border border-gold/30 absolute -bottom-5 -left-6 max-w-[230px]">
+                                <div class="w-11 h-11 rounded-xl bg-emerald-900/10 flex items-center justify-center text-emerald-800 shrink-0">
+                                    <i class="ph-fill ph-whatsapp-logo text-2xl text-emerald-600"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold leading-tight">No Login Needed</p>
+                                    <p class="text-[11px] text-obsidian/70 leading-tight mt-0.5">Select items & checkout directly on WhatsApp</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- COLLECTION CONTROLS: CATEGORIES, SEARCH & SORT -->
+        <section id="collectionSection" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                <div>
+                    <span class="text-xs uppercase tracking-[0.25em] text-goldDark font-semibold">Curated Catalog</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl text-obsidian font-semibold mt-1">The Signature Collection</h2>
+                </div>
+                <p id="productCountLabel" class="text-xs uppercase tracking-widest text-obsidian/60 font-medium">Showing all pieces</p>
+            </div>
+
+            <!-- Filter & Search Bar -->
+            <div class="bg-alabaster/80 p-3 sm:p-4 rounded-2xl border border-gold/20 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
+                
+                <!-- Category Pills -->
+                <div id="categoryPillsContainer" class="flex items-center gap-2 overflow-x-auto pb-1 lg:pb-0 no-scrollbar">
+                    <button onclick="setCategory('All')" data-cat="All" class="cat-pill active shrink-0 px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all bg-obsidian text-gold shadow-sm">
+                        All Pieces
+                    </button>
+                    <button onclick="setCategory('Earrings')" data-cat="Earrings" class="cat-pill shrink-0 px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all bg-cream text-obsidian/80 hover:text-obsidian border border-gold/20">
+                        Earrings & Jhumkas
+                    </button>
+                    <button onclick="setCategory('Necklaces')" data-cat="Necklaces" class="cat-pill shrink-0 px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all bg-cream text-obsidian/80 hover:text-obsidian border border-gold/20">
+                        Necklaces
+                    </button>
+                    <button onclick="setCategory('Bangles & Rings')" data-cat="Bangles & Rings" class="cat-pill shrink-0 px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all bg-cream text-obsidian/80 hover:text-obsidian border border-gold/20">
+                        Bangles & Rings
+                    </button>
+                    <button onclick="setCategory('Bridal Sets')" data-cat="Bridal Sets" class="cat-pill shrink-0 px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all bg-cream text-obsidian/80 hover:text-obsidian border border-gold/20">
+                        Bridal Sets
+                    </button>
+                </div>
+
+                <!-- Search & Sort Controls -->
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
+                    <div class="relative flex-grow sm:w-60">
+                        <i class="ph ph-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-obsidian/50"></i>
+                        <input id="searchInput" oninput="renderStorefront()" type="text" placeholder="Search earrings, kundan, pearl..." 
+                               class="w-full pl-9 pr-4 py-2 bg-cream border border-gold/30 rounded-xl text-xs focus:outline-none focus:border-gold">
+                    </div>
+
+                    <select id="sortSelect" onchange="renderStorefront()" class="bg-cream border border-gold/30 rounded-xl px-3.5 py-2 text-xs font-medium text-obsidian focus:outline-none focus:border-gold cursor-pointer">
+                        <option value="featured">Sort: Featured</option>
+                        <option value="newest">Sort: Newest First</option>
+                        <option value="price-asc">Price: Low to High</option>
+                        <option value="price-desc">Price: High to Low</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUCT GRID -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+            <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7">
+                <!-- Populated dynamically via JS -->
+            </div>
+
+            <!-- Empty State if search yields nothing -->
+            <div id="emptyStoreState" class="hidden text-center py-16 bg-alabaster/50 rounded-3xl border border-dashed border-gold/40 my-4">
+                <div class="w-14 h-14 rounded-full bg-gold/15 text-goldDark mx-auto flex items-center justify-center mb-3">
+                    <i class="ph ph-sparkle text-2xl"></i>
+                </div>
+                <h3 class="font-serif text-2xl font-semibold text-obsidian">No matching jewelry found</h3>
+                <p class="text-xs text-obsidian/60 mt-1 max-w-md mx-auto">Try clearing your search filter or explore another jewelry category above.</p>
+                <button onclick="resetFilters()" class="mt-4 px-5 py-2.5 rounded-full bg-obsidian text-gold text-xs font-semibold uppercase tracking-wider">
+                    Reset Filters
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========================================== -->
+    <!-- VIEW 2: PROTECTED MEESHO-STYLE SUPPLIER HUB-->
+    <!-- ========================================== -->
+    <section id="adminView" class="hidden flex-grow py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full animate-fade-in">
+        
+        <!-- Supplier Studio Top Header -->
+        <div class="bg-obsidian text-cream rounded-3xl p-6 sm:p-8 mb-6 border border-gold/30 shadow-luxury flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+            <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold/20 text-gold text-[11px] font-semibold uppercase tracking-widest mb-2">
+                    <i class="ph-fill ph-lock-key-open"></i>
+                    <span>Authenticated Seller • Supplier Hub</span>
+                </div>
+                <h1 class="font-serif text-3xl sm:text-4xl font-semibold">Catalog & Inventory Manager</h1>
+                <p class="text-cream/70 text-xs sm:text-sm mt-1 max-w-2xl">
+                    Upload new jewelry catalogs, update prices & discounts, toggle stock availability, or delete items. All orders are routed to <strong class="text-goldLight">+91 9778405380</strong>.
+                </p>
+            </div>
+            <div class="flex flex-wrap items-center gap-2.5">
+                <button onclick="switchMode('store')" class="px-5 py-3 rounded-xl bg-gold text-obsidian font-bold text-xs uppercase tracking-wider hover:bg-goldLight transition-all flex items-center gap-2">
+                    <i class="ph-bold ph-storefront"></i>
+                    <span>Back to Storefront</span>
+                </button>
+                <button onclick="resetToDemoCatalog()" class="px-4 py-3 rounded-xl border border-white/20 text-cream/80 hover:text-white hover:border-white/40 text-xs font-medium transition-all flex items-center gap-1.5">
+                    <i class="ph ph-arrow-counter-clockwise"></i>
+                    <span>Reset Demo</span>
+                </button>
+                <button onclick="logoutAdmin()" class="px-4 py-3 rounded-xl bg-red-950/80 hover:bg-red-900 text-red-200 border border-red-500/30 text-xs font-semibold transition-all flex items-center gap-1.5">
+                    <i class="ph-bold ph-sign-out"></i>
+                    <span>Lock Studio</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- MEESHO SUPPLIER STYLE STATS SUMMARY BAR -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+            <div class="bg-cream p-4 sm:p-5 rounded-2xl border border-gold/30 shadow-xs flex items-center justify-between">
+                <div>
+                    <p class="text-[11px] uppercase tracking-wider text-obsidian/60 font-semibold">Total Catalog</p>
+                    <p id="statTotalProducts" class="font-serif text-3xl font-bold text-obsidian mt-0.5">0</p>
+                </div>
+                <div class="w-11 h-11 rounded-xl bg-obsidian text-gold flex items-center justify-center">
+                    <i class="ph-fill ph-package text-xl"></i>
+                </div>
+            </div>
+            <div class="bg-cream p-4 sm:p-5 rounded-2xl border border-gold/30 shadow-xs flex items-center justify-between">
+                <div>
+                    <p class="text-[11px] uppercase tracking-wider text-emerald-800 font-semibold">Active In-Stock</p>
+                    <p id="statInStock" class="font-serif text-3xl font-bold text-emerald-700 mt-0.5">0</p>
+                </div>
+                <div class="w-11 h-11 rounded-xl bg-emerald-900/10 text-emerald-700 flex items-center justify-center">
+                    <i class="ph-fill ph-check-circle text-xl"></i>
+                </div>
+            </div>
+            <div class="bg-cream p-4 sm:p-5 rounded-2xl border border-gold/30 shadow-xs flex items-center justify-between">
+                <div>
+                    <p class="text-[11px] uppercase tracking-wider text-amber-800 font-semibold">Out of Stock</p>
+                    <p id="statOutOfStock" class="font-serif text-3xl font-bold text-amber-700 mt-0.5">0</p>
+                </div>
+                <div class="w-11 h-11 rounded-xl bg-amber-900/10 text-amber-700 flex items-center justify-center">
+                    <i class="ph-fill ph-warning-octagon text-xl"></i>
+                </div>
+            </div>
+            <div class="bg-cream p-4 sm:p-5 rounded-2xl border border-gold/30 shadow-xs flex items-center justify-between">
+                <div>
+                    <p class="text-[11px] uppercase tracking-wider text-goldDark font-semibold">Order WhatsApp</p>
+                    <p id="statWhatsAppNumber" class="font-mono text-sm sm:text-base font-bold text-obsidian mt-1">+91 9778405380</p>
+                </div>
+                <div class="w-11 h-11 rounded-xl bg-emerald-600 text-white flex items-center justify-center">
+                    <i class="ph-fill ph-whatsapp-logo text-xl"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- WHATSAPP RECEIVER CONFIGURATION CARD -->
+        <div class="bg-emerald-950/90 text-cream rounded-2xl p-4 sm:p-5 mb-8 border border-emerald-500/30 shadow-md">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div class="flex items-center gap-3.5">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center text-emerald-300 shrink-0">
+                        <i class="ph-fill ph-whatsapp-logo text-xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-serif text-lg sm:text-xl font-semibold text-white">Direct WhatsApp Order Routing</h2>
+                        <p class="text-xs text-emerald-100/75">
+                            Connected number: <strong class="text-goldLight">+91 9778405380</strong>. Customer orders arrive here with full item & address breakdown.
+                        </p>
+                    </div>
+                </div>
+
+                <form onsubmit="saveSellerWhatsApp(event)" class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 shrink-0">
+                    <div class="relative">
+                        <span class="absolute left-3 top-1/2 -translate-y-1/2 text-xs text-emerald-300 font-semibold">+</span>
+                        <input id="adminWhatsappInput" type="text" required value="919778405380"
+                               class="pl-6 pr-3 py-2 rounded-xl bg-obsidian/90 border border-emerald-400/40 text-white text-xs font-mono focus:outline-none focus:border-gold w-full sm:w-44">
+                    </div>
+                    <button type="submit" class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-obsidian font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-1.5">
+                        <i class="ph-bold ph-floppy-disk text-sm"></i>
+                        <span>Update No.</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- MAIN ADMIN GRID: ADD/UPDATE PRODUCT FORM (LEFT) + MEESHO STYLE INVENTORY LIST (RIGHT) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- Left Column: Add / Edit Product Form -->
+            <div id="adminFormCard" class="lg:col-span-5 bg-alabaster p-6 sm:p-7 rounded-3xl border-2 border-gold/40 shadow-sm lg:sticky lg:top-24 transition-all">
+                <div class="flex items-center justify-between border-b border-gold/20 pb-4 mb-5">
+                    <div>
+                        <span id="formModeSubtitle" class="text-[10px] uppercase tracking-widest text-goldDark font-bold">Supplier Catalog Upload</span>
+                        <h3 id="formTitle" class="font-serif text-2xl font-semibold text-obsidian">Add New Jewelry Piece</h3>
+                    </div>
+                    <button id="cancelEditBtn" type="button" onclick="resetProductForm()" class="hidden px-3 py-1 rounded-full bg-red-100 text-red-700 hover:bg-red-200 text-xs font-semibold">
+                        Cancel Edit
+                    </button>
+                </div>
+
+                <form id="productForm" onsubmit="handleProductSubmit(event)" class="space-y-4">
+                    <input type="hidden" id="editProductId" value="">
+
+                    <!-- Product Name -->
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-obsidian/80 mb-1.5">Product Title *</label>
+                        <input id="prodName" type="text" required placeholder="e.g., Royal Kundan Kemp Chandbali Jhumka" 
+                               class="w-full px-3.5 py-2.5 rounded-xl bg-cream border border-gold/30 text-sm focus:outline-none focus:border-obsidian">
+                    </div>
+
+                    <!-- Category & Badge Row -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-obsidian/80 mb-1.5">Category *</label>
+                            <select id="prodCategory" required class="w-full px-3.5 py-2.5 rounded-xl bg-cream border border-gold/30 text-sm focus:outline-none focus:border-obsidian">
+                                <option value="Earrings">Earrings & Jhumkas</option>
+                                <option value="Necklaces">Necklaces</option>
+                                <option value="Bangles & Rings">Bangles & Rings</option>
+                                <option value="Bridal Sets">Bridal Sets</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-obsidian/80 mb-1.5">Special Tag</label>
+                            <select id="prodBadge" class="w-full px-3.5 py-2.5 rounded-xl bg-cream border border-gold/30 text-sm focus:outline-none focus:border-obsidian">
+                                <option value="Bestseller">Bestseller</option>
+                                <option value="New Arrival">New Arrival</option>
+                                <option value="Handcrafted">Handcrafted</option>
+                                <option value="Limited Edition">Limited Edition</option>
+                                <option value="Bridal Edit">Bridal Edit</option>
+                                <option value="">No Tag</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Selling Price, MRP & Live Discount Calculation -->
+                    <div class="grid grid-cols-2 gap-3.5">
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-obsidian/80 mb-1.5">Selling Price (₹) *</label>
+                            <input id="prodPrice" type="number" min="1" required placeholder="1299" oninput="updateLiveDiscountBadge()"
+                                   class="w-full px-3.5 py-2.5 rounded-xl bg-cream border border-gold/30 text-sm font-bold focus:outline-none focus:border-obsidian">
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between mb-1.5">
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-obsidian/80">MRP Price (₹)</label>
+                                <span id="liveDiscountPreview" class="text-[10px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full hidden">0% OFF</span>
+                            </div>
+                            <input id="prodOriginalPrice" type="number" min="1" placeholder="1899" oninput="updateLiveDiscountBadge()"
+                                   class="w-full px-3.5 py-2.5 rounded-xl bg-cream border border-gold/30 text-sm focus:outline-none focus:border-obsidian">
+                        </div>
+                    </div>
+
+                    <!-- Stock Status & Free Delivery Toggles (Meesho Style) -->
+                    <div class="grid grid-cols-2 gap-3 bg-cream p-3 rounded-2xl border border-gold/25">
+                        <label class="flex items-center gap-2.5 cursor-pointer select-none">
+                            <input type="checkbox" id="prodInStock" checked class="w-4 h-4 accent-emerald-700 rounded">
+                            <span class="text-xs font-semibold text-obsidian">In Stock Ready</span>
+                        </label>
+                        <label class="flex items-center gap-2.5 cursor-pointer select-none">
+                            <input type="checkbox" id="prodFreeDelivery" checked class="w-4 h-4 accent-obsidian rounded">
+                            <span class="text-xs font-semibold text-obsidian">Free Delivery Tag</span>
+                        </label>
+                    </div>
+
+                    <!-- Image Upload (File or URL) -->
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-obsidian/80 mb-1.5">Product Photo *</label>
+                        
+                        <div class="flex items-center gap-3 mb-2">
+                            <label class="flex-1 cursor-pointer bg-cream hover:bg-gold/10 border border-dashed border-gold rounded-xl p-3 text-center transition-all">
+                                <input type="file" id="prodImageFile" accept="image/*" onchange="handleImageUpload(event)" class="hidden">
+                                <div class="flex items-center justify-center gap-2 text-xs font-semibold text-obsidian">
+                                    <i class="ph-bold ph-upload-simple text-goldDark text-base"></i>
+                                    <span>Choose Photo from Gallery / PC</span>
+                                </div>
+                            </label>
+                        </div>
+
+                        <input id="prodImageUrl" type="text" placeholder="Or paste direct image link (https://...)" oninput="previewUrlImage(this.value)"
+                               class="w-full px-3.5 py-2 rounded-xl bg-cream border border-gold/30 text-xs focus:outline-none focus:border-obsidian">
+
+                        <!-- Live Image Preview Box -->
+                        <div id="imagePreviewContainer" class="hidden mt-3 flex items-center gap-3 bg-cream p-2.5 rounded-xl border border-gold/30">
+                            <img id="imagePreviewThumb" src="" alt="Preview" class="w-14 h-14 rounded-lg object-cover border border-gold/30">
+                            <div class="flex-1 min-w-0">
+                                <p class="text-xs font-semibold text-obsidian truncate">Catalog Image Selected</p>
+                                <p class="text-[11px] text-obsidian/60">Ready to publish</p>
+                            </div>
+                            <button type="button" onclick="clearImagePreview()" class="text-xs text-red-600 hover:underline px-2 font-semibold">Remove</button>
+                        </div>
+                    </div>
+
+                    <!-- Material / Description -->
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-obsidian/80 mb-1.5">Product Description & Material *</label>
+                        <textarea id="prodDesc" rows="3" required placeholder="e.g., 22K Micro gold plated, Kemp stones with freshwater pearl drops. Lightweight & anti-tarnish."
+                                  class="w-full px-3.5 py-2.5 rounded-xl bg-cream border border-gold/30 text-sm focus:outline-none focus:border-obsidian"></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" id="submitProductBtn" class="w-full py-3.5 rounded-xl bg-obsidian hover:bg-emeraldDeep text-gold font-semibold text-xs uppercase tracking-widest transition-all shadow-md flex items-center justify-center gap-2">
+                        <i class="ph-bold ph-plus-circle text-base"></i>
+                        <span id="submitProductBtnText">Add Product to Catalog</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Right Column: Meesho-Style Supplier Inventory List -->
+            <div class="lg:col-span-7 space-y-4">
+                <div class="bg-alabaster p-4 sm:p-5 rounded-2xl border border-gold/25 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div>
+                        <h3 class="font-serif text-2xl font-semibold text-obsidian">Live Catalog Inventory</h3>
+                        <p class="text-xs text-obsidian/60">Click <strong>Update / Edit</strong> to modify any product, toggle stock, or delete items.</p>
+                    </div>
+
+                    <!-- Inventory Search & Filter -->
+                    <div class="flex items-center gap-2">
+                        <div class="relative flex-grow sm:w-52">
+                            <i class="ph ph-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-obsidian/40 text-xs"></i>
+                            <input id="adminSearchInput" oninput="renderAdminInventory()" type="text" placeholder="Filter inventory..."
+                                   class="w-full pl-8 pr-3 py-2 rounded-xl bg-cream border border-gold/30 text-xs focus:outline-none focus:border-obsidian">
+                        </div>
+                        <span id="adminTotalCount" class="px-3.5 py-2 rounded-xl bg-obsidian text-gold text-xs font-bold shrink-0">0 Items</span>
+                    </div>
+                </div>
+
+                <div id="adminInventoryList" class="space-y-3.5">
+                    <!-- Dynamically populated with Meesho-style seller cards -->
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- HIDDEN ADMIN LOGIN MODAL                   -->
+    <!-- ========================================== -->
+    <div id="adminLoginModal" class="fixed inset-0 bg-obsidian/80 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="bg-cream rounded-3xl max-w-md w-full overflow-hidden border-2 border-gold/50 shadow-2xl animate-fade-in">
+            <div class="bg-obsidian text-cream p-6 border-b border-gold/30 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-gold/20 border border-gold flex items-center justify-center text-gold">
+                        <i class="ph-fill ph-shield-lock text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-[10px] uppercase tracking-[0.25em] text-gold block">Restricted Access</span>
+                        <h3 class="font-serif text-2xl font-semibold">Seller Studio Login</h3>
+                    </div>
+                </div>
+                <button onclick="closeAdminLoginModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-cream">
+                    <i class="ph ph-x"></i>
+                </button>
+            </div>
+
+            <form onsubmit="handleAdminLoginSubmit(event)" class="p-6 space-y-4">
+                <div id="adminLoginError" class="hidden p-3 rounded-xl bg-red-100 border border-red-300 text-red-800 text-xs font-semibold flex items-center gap-2">
+                    <i class="ph-fill ph-warning-circle text-base shrink-0"></i>
+                    <span>Invalid seller email or password. Please try again.</span>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-obsidian/80 mb-1.5">Seller Email ID</label>
+                    <div class="relative">
+                        <i class="ph ph-envelope-simple absolute left-3.5 top-1/2 -translate-y-1/2 text-obsidian/50"></i>
+                        <input id="loginEmailInput" type="email" required placeholder="Enter seller email"
+                               class="w-full pl-10 pr-4 py-3 rounded-xl bg-alabaster border border-gold/40 text-sm focus:outline-none focus:border-obsidian">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-obsidian/80 mb-1.5">Password</label>
+                    <div class="relative">
+                        <i class="ph ph-lock-key absolute left-3.5 top-1/2 -translate-y-1/2 text-obsidian/50"></i>
+                        <input id="loginPasswordInput" type="password" required placeholder="Enter password"
+                               class="w-full pl-10 pr-10 py-3 rounded-xl bg-alabaster border border-gold/40 text-sm focus:outline-none focus:border-obsidian">
+                        <button type="button" onclick="togglePasswordVisibility()" class="absolute right-3.5 top-1/2 -translate-y-1/2 text-obsidian/50 hover:text-obsidian">
+                            <i id="passEyeIcon" class="ph ph-eye text-base"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full py-3.5 rounded-xl bg-obsidian hover:bg-emeraldDeep text-gold font-bold text-xs uppercase tracking-widest shadow-lg transition-all flex items-center justify-center gap-2">
+                    <i class="ph-bold ph-sign-in text-base"></i>
+                    <span>Unlock Supplier Studio</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- DELETE CONFIRMATION MODAL                  -->
+    <!-- ========================================== -->
+    <div id="deleteConfirmModal" class="fixed inset-0 bg-obsidian/75 backdrop-blur-xs z-50 hidden items-center justify-center p-4">
+        <div class="bg-cream rounded-3xl max-w-sm w-full p-6 border border-gold/40 shadow-2xl animate-fade-in text-center space-y-4">
+            <div class="w-12 h-12 rounded-full bg-red-100 text-red-700 mx-auto flex items-center justify-center">
+                <i class="ph-fill ph-trash text-2xl"></i>
+            </div>
+            <div>
+                <h3 class="font-serif text-2xl font-semibold text-obsidian">Delete Catalog Item?</h3>
+                <p id="deleteModalItemName" class="text-xs text-obsidian/70 mt-1">Are you sure you want to permanently remove this item?</p>
+            </div>
+            <div class="grid grid-cols-2 gap-3 pt-2">
+                <button onclick="closeDeleteModal()" class="py-2.5 rounded-xl bg-alabaster hover:bg-gold/20 text-obsidian text-xs font-semibold uppercase tracking-wider">
+                    Cancel
+                </button>
+                <button id="confirmDeleteBtn" class="py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-bold uppercase tracking-wider">
+                    Yes, Delete
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE-OVER SHOPPING CART DRAWER            -->
+    <!-- ========================================== -->
+    <div id="cartDrawerBackdrop" onclick="toggleCart(false)" class="fixed inset-0 bg-obsidian/60 backdrop-blur-xs z-50 hidden opacity-0 transition-opacity duration-300"></div>
+    
+    <aside id="cartDrawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-cream z-50 shadow-2xl border-l border-gold/30 flex flex-col translate-x-full transition-transform duration-300 ease-in-out">
+        <!-- Drawer Header -->
+        <div class="p-5 bg-obsidian text-cream flex items-center justify-between border-b border-gold/30">
+            <div class="flex items-center gap-2.5">
+                <i class="ph-fill ph-handbag text-gold text-xl"></i>
+                <div>
+                    <h3 class="font-serif text-xl font-semibold tracking-wide">Your Jewelry Bag</h3>
+                    <p class="text-[11px] text-goldLight/80">No login required • Direct WhatsApp Checkout</p>
+                </div>
+            </div>
+            <button onclick="toggleCart(false)" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-cream transition-colors">
+                <i class="ph ph-x text-lg"></i>
+            </button>
+        </div>
+
+        <!-- Cart Items Scrollable Area -->
+        <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-5 space-y-4">
+            <!-- Dynamically populated -->
+        </div>
+
+        <!-- Cart Footer: Customer Note + Subtotal + WhatsApp Checkout Button -->
+        <div id="cartFooter" class="p-5 bg-alabaster border-t border-gold/30 space-y-4">
+            
+            <div class="bg-cream p-3.5 rounded-2xl border border-gold/25 space-y-2.5">
+                <p class="text-[11px] font-bold uppercase tracking-wider text-obsidian/70 flex items-center gap-1.5">
+                    <i class="ph-fill ph-map-pin text-goldDark"></i>
+                    <span>Quick Delivery Details (Optional)</span>
+                </p>
+                <div class="grid grid-cols-2 gap-2">
+                    <input id="custName" type="text" placeholder="Your Name" class="px-3 py-2 rounded-lg bg-alabaster/70 border border-gold/20 text-xs focus:outline-none focus:border-gold">
+                    <input id="custCity" type="text" placeholder="City / Pincode" class="px-3 py-2 rounded-lg bg-alabaster/70 border border-gold/20 text-xs focus:outline-none focus:border-gold">
+                </div>
+                <input id="custNote" type="text" placeholder="Any note? (e.g., Gift wrap, urgent delivery)" class="w-full px-3 py-2 rounded-lg bg-alabaster/70 border border-gold/20 text-xs focus:outline-none focus:border-gold">
+            </div>
+
+            <!-- Subtotal Breakdown -->
+            <div class="space-y-1.5 text-xs">
+                <div class="flex justify-between text-obsidian/70">
+                    <span>Shipping</span>
+                    <span class="text-emerald-700 font-semibold">Complimentary Insured Delivery</span>
+                </div>
+                <div class="flex justify-between items-baseline pt-2 border-t border-gold/20">
+                    <span class="text-sm font-semibold uppercase tracking-wider text-obsidian">Total Payable</span>
+                    <span id="cartSubtotal" class="font-serif text-2xl font-bold text-obsidian">₹0</span>
+                </div>
+            </div>
+
+            <!-- Buy Now on WhatsApp CTA -->
+            <button onclick="checkoutCartViaWhatsApp()" class="w-full py-4 px-5 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white font-semibold text-xs sm:text-sm uppercase tracking-wider shadow-lg hover:shadow-emerald-900/30 transition-all flex items-center justify-center gap-2.5">
+                <i class="ph-fill ph-whatsapp-logo text-xl"></i>
+                <span>Buy Now • Send Order to WhatsApp</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- ========================================== -->
+    <!-- QUICK VIEW PRODUCT MODAL                   -->
+    <!-- ========================================== -->
+    <div id="quickViewModal" class="fixed inset-0 bg-obsidian/70 backdrop-blur-xs z-50 hidden items-center justify-center p-4">
+        <div class="bg-cream rounded-3xl max-w-3xl w-full overflow-hidden border border-gold/40 shadow-2xl animate-fade-in relative">
+            <button onclick="closeQuickView()" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-obsidian/80 text-cream hover:bg-obsidian flex items-center justify-center">
+                <i class="ph ph-x text-lg"></i>
+            </button>
+            <div id="quickViewContent" class="grid grid-cols-1 md:grid-cols-2">
+                <!-- Populated dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- WHATSAPP ORDER CONFIRMATION & PREVIEW MODAL-->
+    <!-- ========================================== -->
+    <div id="waPreviewModal" class="fixed inset-0 bg-obsidian/75 backdrop-blur-xs z-50 hidden items-center justify-center p-4">
+        <div class="bg-cream rounded-3xl max-w-md w-full overflow-hidden border border-gold/40 shadow-2xl animate-fade-in">
+            <div class="bg-emerald-900 text-white p-5 flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                    <i class="ph-fill ph-whatsapp-logo text-2xl text-emerald-300"></i>
+                    <div>
+                        <h3 class="font-serif text-xl font-semibold">Ready to Send on WhatsApp</h3>
+                        <p id="waTargetPhoneDisplay" class="text-[11px] text-emerald-200">To Seller: +91 9778405380</p>
+                    </div>
+                </div>
+                <button onclick="closeWaModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center">
+                    <i class="ph ph-x"></i>
+                </button>
+            </div>
+
+            <div class="p-5 space-y-4">
+                <p class="text-xs text-obsidian/75">
+                    Your order summary is formatted below. Click <strong>"Open WhatsApp & Send"</strong> to launch WhatsApp with these exact details:
+                </p>
+
+                <!-- Formatted WhatsApp Message Preview -->
+                <div class="bg-[#E7FFDB] border border-emerald-600/30 rounded-2xl p-3.5 text-xs font-sans text-obsidian whitespace-pre-wrap max-h-60 overflow-y-auto shadow-inner" id="waMessagePreviewBox"></div>
+
+                <div class="flex flex-col sm:flex-row gap-2.5 pt-2">
+                    <a id="waDirectLinkBtn" href="#" target="_blank" rel="noopener noreferrer" onclick="closeWaModal()"
+                       class="flex-1 py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-md">
+                        <i class="ph-fill ph-whatsapp-logo text-lg"></i>
+                        <span>Open WhatsApp & Send</span>
+                    </a>
+                    <button onclick="copyWaOrderText()" class="py-3.5 px-4 rounded-xl border border-gold/40 bg-alabaster hover:bg-gold/20 text-obsidian font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5">
+                        <i class="ph ph-copy text-base"></i>
+                        <span>Copy Text</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toastNotification" class="fixed bottom-5 right-5 z-50 hidden items-center gap-3 bg-obsidian text-cream px-4 py-3 rounded-2xl shadow-2xl border border-gold/40 text-xs font-medium">
+        <i id="toastIcon" class="ph-fill ph-check-circle text-gold text-lg"></i>
+        <span id="toastMessage">Item added to bag</span>
+    </div>
+
+    <!-- FOOTER (Includes Discreet Lock Icon for Seller Studio Login) -->
+    <footer class="bg-obsidian text-cream border-t border-gold/20 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="text-center md:text-left">
+                <div class="flex items-center justify-center md:justify-start gap-2">
+                    <span class="w-6 h-6 rounded-full border border-gold flex items-center justify-center font-serif italic text-gold text-sm">J</span>
+                    <span class="font-serif text-2xl tracking-[0.25em] text-cream">JEWELRY</span>
+                </div>
+                <p class="text-xs text-cream/60 mt-2 max-w-sm">Fine handcrafted earrings, necklaces, and heritage bridal adornments. Direct WhatsApp Boutique: +91 9778405380.</p>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center gap-4 text-xs">
+                <a href="#collectionSection" onclick="setCategory('All')" class="text-cream/70 hover:text-gold transition-colors">All Collection</a>
+                <span class="text-white/20">•</span>
+                <a href="#collectionSection" onclick="setCategory('Earrings')" class="text-cream/70 hover:text-gold transition-colors">Earrings</a>
+                <span class="text-white/20">•</span>
+                <a href="#collectionSection" onclick="setCategory('Necklaces')" class="text-cream/70 hover:text-gold transition-colors">Necklaces</a>
+                <span class="text-white/20">•</span>
+                <button onclick="toggleCart(true)" class="text-cream/70 hover:text-gold transition-colors">Shopping Bag</button>
+            </div>
+
+            <div class="flex items-center gap-2 text-[11px] text-cream/45">
+                <span onclick="triggerAdminAccess()" class="cursor-pointer hover:text-cream/70 transition-colors select-none">© 2026 JEWELRY Atelier. All rights reserved.</span>
+                <button onclick="triggerAdminAccess()" title="Staff Access" class="opacity-30 hover:opacity-90 text-gold transition-opacity p-1">
+                    <i class="ph ph-lock-simple text-xs"></i>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================== -->
+    <!-- APPLICATION JAVASCRIPT                     -->
+    <!-- ========================================== -->
+    <script>
+        // --- 1. INITIAL DEMO JEWELRY CATALOG ---
+        const DEFAULT_PRODUCTS = [
+            {
+                id: 'jw-101',
+                name: 'Royal Kundan Kemp Chandbali Jhumkas',
+                category: 'Earrings',
+                price: 1299,
+                originalPrice: 1899,
+                badge: 'Bestseller',
+                inStock: true,
+                freeDelivery: true,
+                image: 'https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=900&q=80',
+                description: '22K micro gold-plated heritage chandbali jhumkas studded with ruby kemp stones and cascading freshwater pearl drops. Featherlight comfort.'
+            },
+            {
+                id: 'jw-102',
+                name: 'Maharani Layered Pearl & Emerald Choker',
+                category: 'Necklaces',
+                price: 2499,
+                originalPrice: 3299,
+                badge: 'Bridal Edit',
+                inStock: true,
+                freeDelivery: true,
+                image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=80',
+                description: 'Handcrafted multi-strand shell pearl choker featuring an intricate emerald green centerpiece and adjustable golden dori tassel.'
+            },
+            {
+                id: 'jw-103',
+                name: 'Celestial Rose-Cut Diamond Drop Earrings',
+                category: 'Earrings',
+                price: 949,
+                originalPrice: 1399,
+                badge: 'New Arrival',
+                inStock: true,
+                freeDelivery: true,
+                image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=900&q=80',
+                description: 'High-grade AAA American Diamond chandelier drop earrings in a rose-gold finish. Ideal for cocktail evenings and festive wear.'
+            },
+            {
+                id: 'jw-104',
+                name: 'Aurelia Double-Layered Coin Pendant Chain',
+                category: 'Necklaces',
+                price: 899,
+                originalPrice: 1199,
+                badge: 'Handcrafted',
+                inStock: true,
+                freeDelivery: true,
+                image: 'https://images.unsplash.com/photo-1611591472159-259f7ce81187?auto=format&fit=crop&w=900&q=80',
+                description: 'Anti-tarnish 18K gold vermeil layered necklace featuring delicate sculpted medallion accents. Waterproof & everyday friendly.'
+            },
+            {
+                id: 'jw-105',
+                name: 'Nizam Polki & Jadau Statement Kada Bangles (Pair)',
+                category: 'Bangles & Rings',
+                price: 1799,
+                originalPrice: 2400,
+                badge: 'Limited Edition',
+                inStock: true,
+                freeDelivery: true,
+                image: 'https://images.unsplash.com/photo-1611591471898-259f7ce81187?auto=format&fit=crop&w=900&q=80',
+                description: 'Openable screw-clasp heritage kadas crafted with uncut polki mirrors and antique Nakshi carving. Fits sizes 2.4 to 2.8.'
+            },
+            {
+                id: 'jw-106',
+                name: 'Temple Lakshmi Antique Gold Jhumka Studs',
+                category: 'Earrings',
+                price: 1150,
+                originalPrice: 1550,
+                badge: 'Bestseller',
+                inStock: true,
+                freeDelivery: true,
+                image: 'https://images.unsplash.com/photo-1635767798638-3e25273a8236?auto=format&fit=crop&w=900&q=80',
+                description: 'Traditional South Indian temple craft jhumkas with matte antique gold polish and tiny ghungroo cluster beads.'
+            },
+            {
+                id: 'jw-107',
+                name: 'The Padmavati Full Bridal Necklace & Jhumka Set',
+                category: 'Bridal Sets',
+                price: 4599,
+                originalPrice: 6499,
+                badge: 'Bridal Edit',
+                inStock: true,
+                freeDelivery: true,
+                image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=900&q=80',
+                description: 'Complete luxury bridal suite including a grand haar, matching choker, jhumka earrings, and maang tikka in signature Kundan work.'
+            },
+            {
+                id: 'jw-108',
+                name: 'Solitaire Emerald Halo Cocktail Ring',
+                category: 'Bangles & Rings',
+                price: 749,
+                originalPrice: 999,
+                badge: 'New Arrival',
+                inStock: true,
+                freeDelivery: true,
+                image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=900&q=80',
+                description: 'Adjustable statement cocktail ring featuring a deep emerald-cut stone surrounded by brilliant-cut zirconias.'
+            }
+        ];
+
+        // --- 2. APPLICATION STATE & SELLER CREDENTIALS ---
+        const ADMIN_CREDENTIALS = {
+            email: 'abhijithabhi2026@gmail.com',
+            pass: 'Ajhacker@1947'
+        };
+
+        const DEFAULT_SELLER_WHATSAPP = '919778405380';
+
+        const STORAGE_KEYS = {
+            PRODUCTS: 'jewelry_store_products_v2',
+            CART: 'jewelry_store_cart_v2',
+            WHATSAPP: 'jewelry_seller_whatsapp_v2',
+            AUTH: 'jewelry_admin_session_v2'
+        };
+
+        let products = [];
+        let cart = [];
+        let sellerWhatsApp = DEFAULT_SELLER_WHATSAPP;
+        let isAdminAuthenticated = false;
+        let activeCategory = 'All';
+        let uploadedImageBase64 = '';
+        let lastGeneratedWaText = '';
+        let logoTapCount = 0;
+        let logoTapTimer = null;
+        let pendingDeleteProductId = null;
+
+        // --- 3. INITIALIZATION ---
+        window.onload = function() {
+            loadStateFromStorage();
+            renderStorefront();
+            renderAdminInventory();
+            updateCartUI();
+            setupAdminShortcuts();
+        };
+
+        function loadStateFromStorage() {
+            try {
+                const savedProds = localStorage.getItem(STORAGE_KEYS.PRODUCTS);
+                products = savedProds ? JSON.parse(savedProds) : [...DEFAULT_PRODUCTS];
+
+                products = products.map(p => ({
+                    ...p,
+                    inStock: p.inStock !== undefined ? p.inStock : true,
+                    freeDelivery: p.freeDelivery !== undefined ? p.freeDelivery : true
+                }));
+
+                const savedCart = localStorage.getItem(STORAGE_KEYS.CART);
+                cart = savedCart ? JSON.parse(savedCart) : [];
+
+                const savedWa = localStorage.getItem(STORAGE_KEYS.WHATSAPP);
+                sellerWhatsApp = savedWa ? savedWa : DEFAULT_SELLER_WHATSAPP;
+
+                const waInput = document.getElementById('adminWhatsappInput');
+                if (waInput) waInput.value = sellerWhatsApp;
+                updateWhatsAppDisplayLabels();
+
+                isAdminAuthenticated = sessionStorage.getItem(STORAGE_KEYS.AUTH) === 'true';
+                updateAdminHeaderIndicator();
+            } catch (e) {
+                console.error('Error accessing storage:', e);
+                products = [...DEFAULT_PRODUCTS];
+            }
+        }
+
+        function updateWhatsAppDisplayLabels() {
+            const statEl = document.getElementById('statWhatsAppNumber');
+            if (statEl) {
+                statEl.textContent = '+' + sellerWhatsApp.replace(/^91/, '91 ');
+            }
+        }
+
+        function saveProductsToStorage() {
+            try {
+                localStorage.setItem(STORAGE_KEYS.PRODUCTS, JSON.stringify(products));
+            } catch (e) {
+                showToast('Storage quota full! Try using an image URL or smaller photo.', 'warning');
+            }
+        }
+
+        function saveCartToStorage() {
+            try {
+                localStorage.setItem(STORAGE_KEYS.CART, JSON.stringify(cart));
+            } catch (e) {
+                console.error('Error saving cart:', e);
+            }
+        }
+
+        // --- 4. HIDDEN ADMIN ACCESS & AUTHENTICATION ---
+        function setupAdminShortcuts() {
+            if (window.location.hash === '#admin') {
+                triggerAdminAccess();
+            }
+            window.addEventListener('hashchange', () => {
+                if (window.location.hash === '#admin') {
+                    triggerAdminAccess();
+                }
+            });
+
+            window.addEventListener('keydown', (e) => {
+                if (e.ctrlKey && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
+                    e.preventDefault();
+                    triggerAdminAccess();
+                }
+            });
+        }
+
+        function handleSecretLogoTap() {
+            switchMode('store');
+            logoTapCount++;
+            clearTimeout(logoTapTimer);
+            if (logoTapCount >= 5) {
+                logoTapCount = 0;
+                triggerAdminAccess();
+            } else {
+                logoTapTimer = setTimeout(() => {
+                    logoTapCount = 0;
+                }, 1600);
+            }
+        }
+
+        function triggerAdminAccess() {
+            if (isAdminAuthenticated) {
+                switchMode('admin');
+            } else {
+                openAdminLoginModal();
+            }
+        }
+
+        function openAdminLoginModal() {
+            const modal = document.getElementById('adminLoginModal');
+            document.getElementById('adminLoginError').classList.add('hidden');
+            document.getElementById('loginEmailInput').value = '';
+            document.getElementById('loginPasswordInput').value = '';
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            setTimeout(() => document.getElementById('loginEmailInput').focus(), 100);
+        }
+
+        function closeAdminLoginModal() {
+            const modal = document.getElementById('adminLoginModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            if (window.location.hash === '#admin') {
+                history.replaceState(null, null, ' ');
+            }
+        }
+
+        function togglePasswordVisibility() {
+            const input = document.getElementById('loginPasswordInput');
+            const icon = document.getElementById('passEyeIcon');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.className = 'ph ph-eye-slash text-base';
+            } else {
+                input.type = 'password';
+                icon.className = 'ph ph-eye text-base';
+            }
+        }
+
+        function handleAdminLoginSubmit(event) {
+            event.preventDefault();
+            const email = document.getElementById('loginEmailInput').value.trim().toLowerCase();
+            const pass = document.getElementById('loginPasswordInput').value;
+
+            if (email === ADMIN_CREDENTIALS.email.toLowerCase() && pass === ADMIN_CREDENTIALS.pass) {
+                isAdminAuthenticated = true;
+                sessionStorage.setItem(STORAGE_KEYS.AUTH, 'true');
+                updateAdminHeaderIndicator();
+                closeAdminLoginModal();
+                switchMode('admin');
+                showToast('Welcome back! Supplier Studio unlocked.');
+            } else {
+                document.getElementById('adminLoginError').classList.remove('hidden');
+            }
+        }
+
+        function logoutAdmin() {
+            isAdminAuthenticated = false;
+            sessionStorage.removeItem(STORAGE_KEYS.AUTH);
+            updateAdminHeaderIndicator();
+            switchMode('store');
+            if (window.location.hash === '#admin') {
+                history.replaceState(null, null, ' ');
+            }
+            showToast('Seller Studio locked.');
+        }
+
+        function updateAdminHeaderIndicator() {
+            const badge = document.getElementById('headerAdminBadge');
+            if (!badge) return;
+            if (isAdminAuthenticated) {
+                badge.classList.remove('hidden');
+                badge.classList.add('flex');
+            } else {
+                badge.classList.add('hidden');
+                badge.classList.remove('flex');
+            }
+        }
+
+        // --- 5. MODE SWITCHING ---
+        function switchMode(mode) {
+            const storeView = document.getElementById('storefrontView');
+            const adminView = document.getElementById('adminView');
+
+            if (mode === 'admin') {
+                if (!isAdminAuthenticated) {
+                    openAdminLoginModal();
+                    return;
+                }
+                storeView.classList.add('hidden');
+                adminView.classList.remove('hidden');
+                renderAdminInventory();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                adminView.classList.add('hidden');
+                storeView.classList.remove('hidden');
+                renderStorefront();
+            }
+        }
+
+        // --- 6. STOREFRONT RENDERING & FILTERING ---
+        function setCategory(cat) {
+            activeCategory = cat;
+            const buttons = document.querySelectorAll('.cat-pill');
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-cat') === cat) {
+                    btn.className = 'cat-pill active shrink-0 px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all bg-obsidian text-gold shadow-sm';
+                } else {
+                    btn.className = 'cat-pill shrink-0 px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all bg-cream text-obsidian/80 hover:text-obsidian border border-gold/20';
+                }
+            });
+            renderStorefront();
+        }
+
+        function resetFilters() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('sortSelect').value = 'featured';
+            setCategory('All');
+        }
+
+        function formatINR(amount) {
+            return '₹' + Number(amount).toLocaleString('en-IN');
+        }
+
+        function renderStorefront() {
+            const grid = document.getElementById('productGrid');
+            const emptyState = document.getElementById('emptyStoreState');
+            const countLabel = document.getElementById('productCountLabel');
+            const searchQuery = (document.getElementById('searchInput')?.value || '').toLowerCase().trim();
+            const sortBy = document.getElementById('sortSelect')?.value || 'featured';
+
+            let filtered = products.filter(p => {
+                const matchesCat = activeCategory === 'All' || p.category === activeCategory;
+                const matchesSearch = !searchQuery || 
+                    p.name.toLowerCase().includes(searchQuery) || 
+                    p.description.toLowerCase().includes(searchQuery) ||
+                    p.category.toLowerCase().includes(searchQuery);
+                return matchesCat && matchesSearch;
+            });
+
+            if (sortBy === 'price-asc') {
+                filtered.sort((a, b) => a.price - b.price);
+            } else if (sortBy === 'price-desc') {
+                filtered.sort((a, b) => b.price - a.price);
+            } else if (sortBy === 'newest') {
+                filtered = [...filtered].reverse();
+            }
+
+            if (countLabel) {
+                countLabel.textContent = `Showing ${filtered.length} ${filtered.length === 1 ? 'piece' : 'pieces'}`;
+            }
+
+            if (!grid) return;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                if (emptyState) emptyState.classList.remove('hidden');
+                return;
+            }
+
+            if (emptyState) emptyState.classList.add('hidden');
+            grid.innerHTML = filtered.map(product => {
+                const discountPercent = product.originalPrice && product.originalPrice > product.price
+                    ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)
+                    : null;
+                const isAvailable = product.inStock !== false;
+
+                return `
+                <article class="product-card bg-cream rounded-2xl border border-gold/25 overflow-hidden shadow-luxury flex flex-col justify-between transition-all hover:border-gold ${!isAvailable ? 'opacity-75' : ''}">
+                    <div>
+                        <!-- Image Container -->
+                        <div class="relative aspect-[4/5] bg-alabaster overflow-hidden group cursor-pointer" onclick="openQuickView('${product.id}')">
+                            <img src="${product.image}" 
+                                 alt="${product.name}" 
+                                 onerror="this.src='https://placehold.co/600x750/141817/C5A059?text=JEWELRY'"
+                                 class="product-img w-full h-full object-cover object-center transition-transform duration-500">
+                            
+                            <!-- Top Badges -->
+                            <div class="absolute top-3 left-3 flex flex-col gap-1.5">
+                                ${product.badge ? `<span class="bg-obsidian/90 backdrop-blur-xs text-gold text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-gold/30">${product.badge}</span>` : ''}
+                                ${discountPercent ? `<span class="bg-emerald-700 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full w-fit">${discountPercent}% OFF</span>` : ''}
+                            </div>
+
+                            ${!isAvailable ? `
+                            <div class="absolute inset-0 bg-obsidian/55 backdrop-blur-[2px] flex items-center justify-center">
+                                <span class="bg-red-900 text-white text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full border border-red-400/40">Sold Out</span>
+                            </div>
+                            ` : ''}
+
+                            <!-- Quick View Button -->
+                            <button onclick="event.stopPropagation(); openQuickView('${product.id}')" 
+                                    class="absolute bottom-3 right-3 w-9 h-9 rounded-full bg-cream/90 hover:bg-obsidian text-obsidian hover:text-gold flex items-center justify-center shadow-md transition-all"
+                                    title="Quick View">
+                                <i class="ph ph-eye text-base"></i>
+                            </button>
+                        </div>
+
+                        <!-- Product Details -->
+                        <div class="p-4 sm:p-5">
+                            <div class="flex items-center justify-between gap-2">
+                                <span class="text-[10px] uppercase tracking-[0.2em] text-goldDark font-semibold">${product.category}</span>
+                                ${product.freeDelivery !== false ? `<span class="text-[10px] font-semibold text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded-md flex items-center gap-1"><i class="ph-fill ph-truck"></i>Free Delivery</span>` : ''}
+                            </div>
+
+                            <h3 onclick="openQuickView('${product.id}')" class="font-serif text-xl font-semibold text-obsidian mt-1 line-clamp-1 hover:text-goldDark cursor-pointer transition-colors">${product.name}</h3>
+                            <p class="text-xs text-obsidian/65 mt-1 line-clamp-2 leading-relaxed">${product.description}</p>
+                            
+                            <!-- Price Row -->
+                            <div class="mt-3 flex items-baseline gap-2 flex-wrap">
+                                <span class="font-serif text-2xl font-bold text-obsidian">${formatINR(product.price)}</span>
+                                ${product.originalPrice ? `<span class="text-xs text-obsidian/45 line-through">${formatINR(product.originalPrice)}</span>` : ''}
+                                ${discountPercent ? `<span class="text-[11px] font-bold text-emerald-700">${discountPercent}% off</span>` : ''}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons: Add to Bag + Direct Buy Now on WhatsApp -->
+                    <div class="px-4 pb-4 sm:px-5 sm:pb-5 pt-1 flex flex-col gap-2">
+                        ${isAvailable ? `
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="addToCart('${product.id}')" 
+                                    class="py-2.5 px-3 rounded-xl bg-obsidian hover:bg-emeraldDeep text-gold font-semibold text-[11px] uppercase tracking-wider transition-all flex items-center justify-center gap-1.5">
+                                <i class="ph-bold ph-handbag text-sm"></i>
+                                <span>Add to Bag</span>
+                            </button>
+                            <button onclick="buySingleProductNow('${product.id}')" 
+                                    class="py-2.5 px-3 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white font-semibold text-[11px] uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-xs">
+                                <i class="ph-fill ph-whatsapp-logo text-sm"></i>
+                                <span>Buy Now</span>
+                            </button>
+                        </div>
+                        ` : `
+                        <button onclick="buySingleProductNow('${product.id}')" class="w-full py-2.5 px-3 rounded-xl bg-alabaster border border-gold/30 text-obsidian/70 hover:text-obsidian font-semibold text-[11px] uppercase tracking-wider transition-all flex items-center justify-center gap-1.5">
+                            <i class="ph-fill ph-whatsapp-logo text-emerald-700 text-sm"></i>
+                            <span>Inquire Restock on WhatsApp</span>
+                        </button>
+                        `}
+                    </div>
+                </article>
+                `;
+            }).join('');
+        }
+
+        // --- 7. QUICK VIEW MODAL ---
+        function openQuickView(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            const discountPercent = product.originalPrice && product.originalPrice > product.price
+                ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)
+                : null;
+
+            const modal = document.getElementById('quickViewModal');
+            const content = document.getElementById('quickViewContent');
+
+            content.innerHTML = `
+                <div class="aspect-square md:aspect-auto bg-alabaster relative">
+                    <img src="${product.image}" alt="${product.name}" 
+                         onerror="this.src='https://placehold.co/600x750/141817/C5A059?text=JEWELRY'"
+                         class="w-full h-full object-cover max-h-[480px]">
+                    ${discountPercent ? `<span class="absolute top-4 left-4 bg-emerald-700 text-white text-xs font-bold px-3 py-1 rounded-full">${discountPercent}% OFF</span>` : ''}
+                </div>
+                <div class="p-6 sm:p-8 flex flex-col justify-between space-y-5">
+                    <div>
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-[10px] uppercase tracking-[0.25em] text-goldDark font-bold">${product.category}</span>
+                            ${product.badge ? `<span class="text-[10px] bg-gold/20 text-obsidian px-2.5 py-0.5 rounded-full font-semibold">${product.badge}</span>` : ''}
+                        </div>
+                        <h2 class="font-serif text-2xl sm:text-3xl font-semibold text-obsidian">${product.name}</h2>
+                        <div class="mt-3 flex items-baseline gap-2.5">
+                            <span class="font-serif text-3xl font-bold text-obsidian">${formatINR(product.price)}</span>
+                            ${product.originalPrice ? `<span class="text-sm text-obsidian/45 line-through">${formatINR(product.originalPrice)}</span>` : ''}
+                            ${discountPercent ? `<span class="text-xs font-bold text-emerald-700">(${discountPercent}% OFF)</span>` : ''}
+                        </div>
+                        <p class="text-xs sm:text-sm text-obsidian/75 mt-4 leading-relaxed">${product.description}</p>
+
+                        <div class="mt-5 pt-4 border-t border-gold/20 space-y-2 text-xs text-obsidian/75">
+                            <div class="flex items-center gap-2"><i class="ph-fill ph-truck text-emerald-700"></i><span>${product.freeDelivery !== false ? 'Free Express Delivery across India' : 'Standard Insured Delivery'}</span></div>
+                            <div class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-emerald-700"></i><span>Direct WhatsApp order to +91 9778405380 (No Login)</span></div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2.5 pt-2">
+                        <button onclick="addToCart('${product.id}'); closeQuickView();" class="w-full py-3.5 rounded-xl bg-obsidian hover:bg-emeraldDeep text-gold font-semibold text-xs uppercase tracking-widest transition-all flex items-center justify-center gap-2">
+                            <i class="ph-bold ph-handbag text-base"></i>
+                            <span>Add to Shopping Bag</span>
+                        </button>
+                        <button onclick="closeQuickView(); buySingleProductNow('${product.id}');" class="w-full py-3.5 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white font-semibold text-xs uppercase tracking-widest transition-all flex items-center justify-center gap-2">
+                            <i class="ph-fill ph-whatsapp-logo text-lg"></i>
+                            <span>Buy Now on WhatsApp</span>
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeQuickView() {
+            const modal = document.getElementById('quickViewModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // --- 8. SHOPPING BAG / CART LOGIC ---
+        function toggleCart(open) {
+            const drawer = document.getElementById('cartDrawer');
+            const backdrop = document.getElementById('cartDrawerBackdrop');
+
+            if (open) {
+                backdrop.classList.remove('hidden');
+                setTimeout(() => backdrop.classList.remove('opacity-0'), 10);
+                drawer.classList.remove('translate-x-full');
+            } else {
+                backdrop.classList.add('opacity-0');
+                drawer.classList.add('translate-x-full');
+                setTimeout(() => backdrop.classList.add('hidden'), 300);
+            }
+        }
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            const existing = cart.find(item => item.id === productId);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    image: product.image,
+                    category: product.category,
+                    qty: 1
+                });
+            }
+
+            saveCartToStorage();
+            updateCartUI();
+            showToast(`Added "${product.name}" to your bag`);
+        }
+
+        function changeCartQty(productId, delta) {
+            const idx = cart.findIndex(item => item.id === productId);
+            if (idx === -1) return;
+
+            cart[idx].qty += delta;
+            if (cart[idx].qty <= 0) {
+                cart.splice(idx, 1);
+            }
+            saveCartToStorage();
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const badge = document.getElementById('cartCountBadge');
+            const container = document.getElementById('cartItemsContainer');
+            const subtotalEl = document.getElementById('cartSubtotal');
+            const footer = document.getElementById('cartFooter');
+
+            const totalItems = cart.reduce((acc, item) => acc + item.qty, 0);
+            const totalPrice = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+
+            badge.textContent = totalItems;
+            subtotalEl.textContent = formatINR(totalPrice);
+
+            if (cart.length === 0) {
+                footer.classList.add('hidden');
+                container.innerHTML = `
+                    <div class="h-full flex flex-col items-center justify-center text-center py-12">
+                        <div class="w-16 h-16 rounded-full bg-alabaster border border-gold/30 flex items-center justify-center text-goldDark mb-3">
+                            <i class="ph ph-handbag text-3xl"></i>
+                        </div>
+                        <h4 class="font-serif text-2xl font-semibold text-obsidian">Your Bag is Empty</h4>
+                        <p class="text-xs text-obsidian/60 mt-1 max-w-xs">Explore our earrings, necklaces, and bridal sets to add items to your bag.</p>
+                        <button onclick="toggleCart(false)" class="mt-5 px-6 py-2.5 rounded-full bg-obsidian text-gold text-xs font-semibold uppercase tracking-wider">
+                            Browse Jewelry
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+
+            footer.classList.remove('hidden');
+            container.innerHTML = cart.map(item => `
+                <div class="flex items-center gap-3.5 bg-alabaster/70 p-3 rounded-2xl border border-gold/20">
+                    <img src="${item.image}" alt="${item.name}" 
+                         onerror="this.src='https://placehold.co/120x120/141817/C5A059?text=J'"
+                         class="w-16 h-16 rounded-xl object-cover border border-gold/20 shrink-0">
+                    <div class="flex-1 min-w-0">
+                        <span class="text-[10px] uppercase tracking-wider text-goldDark font-semibold">${item.category}</span>
+                        <h4 class="font-serif text-base font-semibold text-obsidian truncate">${item.name}</h4>
+                        <p class="text-xs font-bold text-obsidian mt-0.5">${formatINR(item.price)} × ${item.qty} = <span class="text-emerald-800">${formatINR(item.price * item.qty)}</span></p>
+                    </div>
+                    <div class="flex items-center gap-1.5 bg-cream px-2 py-1 rounded-xl border border-gold/30">
+                        <button onclick="changeCartQty('${item.id}', -1)" class="w-6 h-6 rounded-lg hover:bg-alabaster flex items-center justify-center text-obsidian font-bold">-</button>
+                        <span class="text-xs font-bold w-4 text-center">${item.qty}</span>
+                        <button onclick="changeCartQty('${item.id}', 1)" class="w-6 h-6 rounded-lg hover:bg-alabaster flex items-center justify-center text-obsidian font-bold">+</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // --- 9. WHATSAPP ORDER GENERATION (Strictly Routed to 919778405380) ---
+        function sanitizePhone(phone) {
+            let digits = String(phone).replace(/[^0-9]/g, '');
+            if (digits.length === 10) {
+                digits = '91' + digits;
+            }
+            return digits;
+        }
+
+        function buySingleProductNow(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            const orderLines = [
+                `✨ *NEW ORDER - JEWELRY ATELIER* ✨`,
+                `----------------------------------`,
+                `🛍️ *Item:* ${product.name}`,
+                `📂 *Category:* ${product.category}`,
+                `🔢 *Quantity:* 1`,
+                `💰 *Price:* ${formatINR(product.price)}${product.originalPrice ? ` (MRP: ${formatINR(product.originalPrice)})` : ''}`,
+                `🚚 *Delivery:* ${product.freeDelivery !== false ? 'FREE Delivery' : 'Standard'}`,
+                `----------------------------------`,
+                `💎 *Total Payable:* *${formatINR(product.price)}*`,
+                ``,
+                `Hello! I would like to buy this jewelry piece. Please share payment & delivery details.`
+            ];
+
+            launchWhatsAppPreview(orderLines.join('\n'));
+        }
+
+        function checkoutCartViaWhatsApp() {
+            if (cart.length === 0) {
+                showToast('Your shopping bag is empty!', 'warning');
+                return;
+            }
+
+            const custName = document.getElementById('custName')?.value.trim() || '';
+            const custCity = document.getElementById('custCity')?.value.trim() || '';
+            const custNote = document.getElementById('custNote')?.value.trim() || '';
+            const totalAmount = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+            let orderLines = [
+                `✨ *NEW JEWELRY ORDER - JEWELRY* ✨`,
+                `----------------------------------`
+            ];
+
+            cart.forEach((item, index) => {
+                orderLines.push(`${index + 1}. *${item.name}* (${item.category})`);
+                orderLines.push(`   Qty: ${item.qty} × ${formatINR(item.price)} = *${formatINR(item.price * item.qty)}*`);
+            });
+
+            orderLines.push(`----------------------------------`);
+            orderLines.push(`💎 *GRAND TOTAL: ${formatINR(totalAmount)}*`);
+
+            if (custName || custCity || custNote) {
+                orderLines.push(``);
+                orderLines.push(`📍 *Customer Delivery Details:*`);
+                if (custName) orderLines.push(`• Name: ${custName}`);
+                if (custCity) orderLines.push(`• City/Pincode: ${custCity}`);
+                if (custNote) orderLines.push(`• Note: ${custNote}`);
+            }
+
+            orderLines.push(``);
+            orderLines.push(`Please confirm availability and share payment details.`);
+
+            toggleCart(false);
+            launchWhatsAppPreview(orderLines.join('\n'));
+        }
+
+        function openWhatsAppDirectSupport() {
+            const msg = `Hello JEWELRY Atelier! ✨ I am browsing your jewelry collection and would like to inquire about your pieces.`;
+            launchWhatsAppPreview(msg);
+        }
+
+        function launchWhatsAppPreview(messageText) {
+            lastGeneratedWaText = messageText;
+            const cleanPhone = sanitizePhone(sellerWhatsApp) || DEFAULT_SELLER_WHATSAPP;
+            const encodedMsg = encodeURIComponent(messageText);
+            const waUrl = `https://wa.me/${cleanPhone}?text=${encodedMsg}`;
+
+            document.getElementById('waTargetPhoneDisplay').textContent = `Seller WhatsApp: +${cleanPhone}`;
+            document.getElementById('waMessagePreviewBox').textContent = messageText;
+            document.getElementById('waDirectLinkBtn').href = waUrl;
+
+            const modal = document.getElementById('waPreviewModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeWaModal() {
+            const modal = document.getElementById('waPreviewModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function copyWaOrderText() {
+            const tempInput = document.createElement('textarea');
+            tempInput.value = lastGeneratedWaText;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            showToast('Order details copied to clipboard!');
+        }
+
+        // --- 10. MEESHO-STYLE SUPPLIER STUDIO CRUD LOGIC ---
+        function saveSellerWhatsApp(event) {
+            event.preventDefault();
+            const inputVal = document.getElementById('adminWhatsappInput').value.trim();
+            const cleaned = sanitizePhone(inputVal);
+            if (!cleaned || cleaned.length < 10) {
+                showToast('Please enter a valid 10-digit mobile number', 'warning');
+                return;
+            }
+            sellerWhatsApp = cleaned;
+            document.getElementById('adminWhatsappInput').value = cleaned;
+            localStorage.setItem(STORAGE_KEYS.WHATSAPP, cleaned);
+            updateWhatsAppDisplayLabels();
+            showToast(`Orders will now go to WhatsApp +${cleaned}`);
+        }
+
+        function updateLiveDiscountBadge() {
+            const price = Number(document.getElementById('prodPrice').value);
+            const mrp = Number(document.getElementById('prodOriginalPrice').value);
+            const badge = document.getElementById('liveDiscountPreview');
+
+            if (price > 0 && mrp > price) {
+                const pct = Math.round(((mrp - price) / mrp) * 100);
+                badge.textContent = `${pct}% OFF`;
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
+        }
+
+        function handleImageUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                uploadedImageBase64 = e.target.result;
+                document.getElementById('prodImageUrl').value = '';
+                showImagePreview(uploadedImageBase64);
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function previewUrlImage(url) {
+            if (url && url.trim().startsWith('http')) {
+                uploadedImageBase64 = '';
+                showImagePreview(url.trim());
+            } else if (!uploadedImageBase64) {
+                clearImagePreview();
+            }
+        }
+
+        function showImagePreview(src) {
+            const container = document.getElementById('imagePreviewContainer');
+            const thumb = document.getElementById('imagePreviewThumb');
+            thumb.src = src;
+            container.classList.remove('hidden');
+        }
+
+        function clearImagePreview() {
+            uploadedImageBase64 = '';
+            document.getElementById('prodImageFile').value = '';
+            document.getElementById('prodImageUrl').value = '';
+            document.getElementById('imagePreviewContainer').classList.add('hidden');
+        }
+
+        function handleProductSubmit(event) {
+            event.preventDefault();
+
+            const editId = document.getElementById('editProductId').value;
+            const name = document.getElementById('prodName').value.trim();
+            const category = document.getElementById('prodCategory').value;
+            const badge = document.getElementById('prodBadge').value;
+            const price = Number(document.getElementById('prodPrice').value);
+            const origPriceVal = document.getElementById('prodOriginalPrice').value;
+            const originalPrice = origPriceVal ? Number(origPriceVal) : null;
+            const inStock = document.getElementById('prodInStock').checked;
+            const freeDelivery = document.getElementById('prodFreeDelivery').checked;
+            const urlInput = document.getElementById('prodImageUrl').value.trim();
+            const description = document.getElementById('prodDesc').value.trim();
+
+            const finalImage = uploadedImageBase64 || urlInput || 'https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=900&q=80';
+
+            if (editId) {
+                const idx = products.findIndex(p => p.id === editId);
+                if (idx !== -1) {
+                    products[idx] = {
+                        ...products[idx],
+                        name,
+                        category,
+                        badge,
+                        price,
+                        originalPrice,
+                        inStock,
+                        freeDelivery,
+                        image: finalImage,
+                        description
+                    };
+                    showToast(`Updated "${name}" in your catalog!`);
+                }
+            } else {
+                const newProduct = {
+                    id: 'jw-' + Date.now(),
+                    name,
+                    category,
+                    badge,
+                    price,
+                    originalPrice,
+                    inStock,
+                    freeDelivery,
+                    image: finalImage,
+                    description
+                };
+                products.unshift(newProduct);
+                showToast(`Added "${name}" to your Storefront!`);
+            }
+
+            saveProductsToStorage();
+            resetProductForm();
+            renderAdminInventory();
+            renderStorefront();
+        }
+
+        function editProduct(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            document.getElementById('editProductId').value = product.id;
+            document.getElementById('prodName').value = product.name;
+            document.getElementById('prodCategory').value = product.category;
+            document.getElementById('prodBadge').value = product.badge || '';
+            document.getElementById('prodPrice').value = product.price;
+            document.getElementById('prodOriginalPrice').value = product.originalPrice || '';
+            document.getElementById('prodInStock').checked = product.inStock !== false;
+            document.getElementById('prodFreeDelivery').checked = product.freeDelivery !== false;
+            document.getElementById('prodDesc').value = product.description;
+
+            updateLiveDiscountBadge();
+
+            if (product.image.startsWith('data:')) {
+                uploadedImageBase64 = product.image;
+                document.getElementById('prodImageUrl').value = '';
+            } else {
+                uploadedImageBase64 = '';
+                document.getElementById('prodImageUrl').value = product.image;
+            }
+            showImagePreview(product.image);
+
+            document.getElementById('formModeSubtitle').textContent = 'Editing Existing Catalog Item';
+            document.getElementById('formTitle').textContent = 'Update Jewelry Details';
+            document.getElementById('submitProductBtnText').textContent = 'Update Catalog Item';
+            document.getElementById('cancelEditBtn').classList.remove('hidden');
+
+            const formCard = document.getElementById('adminFormCard');
+            formCard.classList.add('ring-2', 'ring-gold');
+            formCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function toggleProductStock(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            product.inStock = product.inStock === false ? true : false;
+            saveProductsToStorage();
+            renderAdminInventory();
+            renderStorefront();
+            showToast(`"${product.name}" marked as ${product.inStock ? 'In Stock' : 'Out of Stock'}`);
+        }
+
+        function promptDeleteProduct(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            pendingDeleteProductId = productId;
+            document.getElementById('deleteModalItemName').textContent = `Remove "${product.name}" (${formatINR(product.price)}) permanently from your catalog?`;
+            const modal = document.getElementById('deleteConfirmModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+
+            document.getElementById('confirmDeleteBtn').onclick = function() {
+                executeDeleteProduct();
+            };
+        }
+
+        function executeDeleteProduct() {
+            if (!pendingDeleteProductId) return;
+            const product = products.find(p => p.id === pendingDeleteProductId);
+            products = products.filter(p => p.id !== pendingDeleteProductId);
+            pendingDeleteProductId = null;
+            closeDeleteModal();
+            saveProductsToStorage();
+            renderAdminInventory();
+            renderStorefront();
+            if (product) showToast(`Deleted "${product.name}" from catalog`);
+        }
+
+        function closeDeleteModal() {
+            const modal = document.getElementById('deleteConfirmModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function resetProductForm() {
+            document.getElementById('productForm').reset();
+            document.getElementById('editProductId').value = '';
+            document.getElementById('prodInStock').checked = true;
+            document.getElementById('prodFreeDelivery').checked = true;
+            document.getElementById('liveDiscountPreview').classList.add('hidden');
+            clearImagePreview();
+
+            document.getElementById('formModeSubtitle').textContent = 'Supplier Catalog Upload';
+            document.getElementById('formTitle').textContent = 'Add New Jewelry Piece';
+            document.getElementById('submitProductBtnText').textContent = 'Add Product to Catalog';
+            document.getElementById('cancelEditBtn').classList.add('hidden');
+            document.getElementById('adminFormCard').classList.remove('ring-2', 'ring-gold');
+        }
+
+        function resetToDemoCatalog() {
+            products = [...DEFAULT_PRODUCTS];
+            saveProductsToStorage();
+            renderAdminInventory();
+            renderStorefront();
+            showToast('Restored default 8 luxury jewelry items!');
+        }
+
+        function renderAdminInventory() {
+            const list = document.getElementById('adminInventoryList');
+            const totalBadge = document.getElementById('adminTotalCount');
+            const filterText = (document.getElementById('adminSearchInput')?.value || '').toLowerCase().trim();
+
+            const totalCount = products.length;
+            const inStockCount = products.filter(p => p.inStock !== false).length;
+            const outStockCount = totalCount - inStockCount;
+
+            const elTotal = document.getElementById('statTotalProducts');
+            const elIn = document.getElementById('statInStock');
+            const elOut = document.getElementById('statOutOfStock');
+            if (elTotal) elTotal.textContent = totalCount;
+            if (elIn) elIn.textContent = inStockCount;
+            if (elOut) elOut.textContent = outStockCount;
+
+            const filteredInventory = products.filter(p =>
+                !filterText ||
+                p.name.toLowerCase().includes(filterText) ||
+                p.category.toLowerCase().includes(filterText)
+            );
+
+            totalBadge.textContent = `${filteredInventory.length} Items`;
+
+            if (filteredInventory.length === 0) {
+                list.innerHTML = `
+                    <div class="bg-alabaster p-10 rounded-2xl text-center border border-dashed border-gold/40">
+                        <p class="font-serif text-xl text-obsidian">No matching products in inventory.</p>
+                        <p class="text-xs text-obsidian/60 mt-1">Use the form on the left to add new jewelry pieces!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            list.innerHTML = filteredInventory.map(item => {
+                const isAvailable = item.inStock !== false;
+                const discountPercent = item.originalPrice && item.originalPrice > item.price
+                    ? Math.round(((item.originalPrice - item.price) / item.originalPrice) * 100)
+                    : null;
+
+                return `
+                <div class="bg-cream p-4 sm:p-5 rounded-2xl border border-gold/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 hover:border-gold transition-all shadow-xs">
+                    <div class="flex items-start sm:items-center gap-4 w-full sm:w-auto">
+                        <img src="${item.image}" alt="${item.name}" 
+                             onerror="this.src='https://placehold.co/120x120/141817/C5A059?text=J'"
+                             class="w-20 h-20 rounded-xl object-cover border border-gold/30 shrink-0">
+                        <div class="space-y-1 flex-1 min-w-0">
+                            <div class="flex flex-wrap items-center gap-1.5">
+                                <span class="text-[10px] uppercase tracking-widest text-goldDark font-bold">${item.category}</span>
+                                ${item.badge ? `<span class="text-[10px] bg-gold/20 text-obsidian px-2 py-0.5 rounded-full font-semibold">${item.badge}</span>` : ''}
+                                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full ${isAvailable ? 'bg-emerald-100 text-emerald-800' : 'bg-red-100 text-red-700'}">
+                                    ${isAvailable ? '● In Stock' : '○ Out of Stock'}
+                                </span>
+                            </div>
+                            <h4 class="font-serif text-lg sm:text-xl font-semibold text-obsidian truncate">${item.name}</h4>
+                            <div class="flex items-baseline gap-2">
+                                <span class="text-base font-bold text-obsidian">${formatINR(item.price)}</span>
+                                ${item.originalPrice ? `<span class="text-xs text-obsidian/45 line-through">${formatINR(item.originalPrice)}</span>` : ''}
+                                ${discountPercent ? `<span class="text-[11px] font-bold text-emerald-700">${discountPercent}% OFF</span>` : ''}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-2 w-full sm:w-auto justify-end pt-3 sm:pt-0 border-t sm:border-t-0 border-gold/15">
+                        <button onclick="toggleProductStock('${item.id}')" 
+                                class="px-3 py-2 rounded-xl text-xs font-semibold border transition-colors flex items-center gap-1.5 ${isAvailable ? 'bg-amber-50 hover:bg-amber-100 text-amber-900 border-amber-200' : 'bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border-emerald-200'}">
+                            <i class="ph-bold ${isAvailable ? 'ph-eye-slash' : 'ph-check'}"></i>
+                            <span>${isAvailable ? 'Mark Sold Out' : 'Mark In Stock'}</span>
+                        </button>
+
+                        <button onclick="editProduct('${item.id}')" 
+                                class="px-3.5 py-2 rounded-xl bg-obsidian hover:bg-emeraldDeep text-gold text-xs font-semibold flex items-center gap-1.5 transition-colors">
+                            <i class="ph-bold ph-pencil-simple"></i>
+                            <span>Update</span>
+                        </button>
+
+                        <button onclick="promptDeleteProduct('${item.id}')" 
+                                class="px-3 py-2 rounded-xl bg-red-50 hover:bg-red-100 text-red-700 text-xs font-semibold flex items-center gap-1 border border-red-200 transition-colors"
+                                title="Delete Item">
+                            <i class="ph-bold ph-trash"></i>
+                            <span>Delete</span>
+                        </button>
+                    </div>
+                </div>
+                `;
+            }).join('');
+        }
+
+        // --- 11. TOAST HELPER ---
+        let toastTimeout;
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toastNotification');
+            const msgEl = document.getElementById('toastMessage');
+            const iconEl = document.getElementById('toastIcon');
+
+            msgEl.textContent = message;
+            iconEl.className = type === 'warning'
+                ? 'ph-fill ph-warning-circle text-amber-400 text-lg'
+                : 'ph-fill ph-check-circle text-gold text-lg';
+
+            toast.classList.remove('hidden');
+            toast.classList.add('flex');
+
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.add('hidden');
+                toast.classList.remove('flex');
+            }, 3200);
+        }
+    </script>
+</body>
+</html>
